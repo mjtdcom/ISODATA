@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.accordion {
+  background-color: #e3df10;
+  color: #444;
+  cursor: pointer;
+  padding: 35px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<h2><p align="center" style="margin-top: 10; margin-bottom: 10"><b><font face="Times New Roman" size="10" color="#20f511">Myanmar Japan Thilawa Development Limited</font></b></p></h2>
+
+<button class="accordion">Document Control</button>
+<div class="panel">
+  <p><a href="https://drive.google.com/drive/folders/1LMEdnJA7J7NE1W-s8hCvzRNTA_LpOvhr?usp=sharing"target="_blank"><font size="2" face="Arial">Document Control</font></a></p>
+</div>
+
+<button class="accordion">Admin and HR Department</button>
+<div class="panel">
+
+  <p><a href="https://drive.google.com/drive/folders/1oVnws7a_a-RMZq-a6uJSIsfTgTUZgG-5?usp=sharing"target="_blank"><font size="2" face="Arial">Admin</font></a></p>
+
+  <p><a href="https://drive.google.com/drive/folders/1AcBk-w-oK5jGZz3a3zkGMwGZbicoQt6w?usp=sharing"target="_blank"><font size="2" face="Arial">Human Resource</font></a></p>
+
+   <p><a href="https://drive.google.com/drive/folders/1wofvC7wBCFPemh-9Gn_zGP2zS41IvXGK?usp=sharing"target="_blank"><font size="2" face="Arial">Procurement</font></a></p>
+
+</div>
+
+<button class="accordion">Operations Department</button>
+<div class="panel">
+
+   <p><a href="https://drive.google.com/drive/folders/1WltGbIzC4Y74LlbNR03crvalhhNgc-_U?usp=sharing"target="_blank"><font size="2" face="Arial">Construction</font></a></p>
+
+   <p><a href="https://drive.google.com/drive/folders/1U-FSa4hsS5y9vac3noijI487ALWfiRwR?usp=sharing"target="_blank"><font size="2" face="Arial">Power</font></a></p>
+
+   <p><a href="https://drive.google.com/drive/folders/1K5MsN2zO6I-ZB06qQSHgcqdkpSpVj4pu?usp=sharing"target="_blank"><font size="2" face="Arial">Environmental</font></a></p>
+
+   <p><a href=" https://drive.google.com/drive/folders/15mVZMH8ni5kQfbROCGtbAMeH6qtudGOr?usp=sharing"target="_blank"><font size="2" face="Arial">Maintenance</font></a></p>
+
+  <p><a href="https://drive.google.com/drive/folders/1RFWNC6AXWP8wBdCS9uFo6Ihi3l9YheHm?usp=sharing"target="_blank"><font size="2" face="Arial">Landscaping & Security</font></a></p>
+ 
+
+</div>
+
+<button class="accordion">Customer Department</button>
+<div class="panel">
+
+ <p><a href="https://drive.google.com/drive/folders/1fzHCjJiWrHDN3Ilem3u2aw5RGRl06Zzq?usp=sharing"target="_blank"><font size="2" face="Arial">Locator Relation</font></a></p>
+
+ <p><a href="https://drive.google.com/drive/folders/1fzHCjJiWrHDN3Ilem3u2aw5RGRl06Zzq?usp=sharing"target="_blank"><font size="2" face="Arial">Sale & Marketing</font></a></p>
+
+</div>
+
+<button class="accordion">Community Relation Department</button>
+<div class="panel">
+  
+  <p><a href="https://drive.google.com/drive/folders/15UYJ4vAU0yV7bg5oOfeXUaZVUydzZPJM?usp=sharing"target="_blank"><font size="2" face="Arial">Community Relation</font></a></p>
+
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
