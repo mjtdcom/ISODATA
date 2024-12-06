@@ -1,114 +1,179 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.accordion {
-  background-color: #28f00a;
-  color: #444;
-  cursor: pointer;
-  padding: 30px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJTD Document Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 20px;
+            color: #333;
+            margin: 0;
+        }
+        .container {
+            padding: 10px;
+        }
+        .section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .section-header {
+            background-color: #ffeb3b;
+            padding: 15px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+        }
+        .section-content {
+            padding: 15px;
+            display: none;
+            border-top: 1px solid #ddd;
+        }
+        .section-content a {
+            display: block;
+            margin: 5px 0;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .section-content a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            color: #777;
+            margin-top: 20px;
+        }
+        .search-bar {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        // Function to toggle section visibility
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            section.style.display = section.style.display === "none" ? "block" : "none";
+        }
 
-.active, .accordion:hover {
-  background-color: #e1f00a; 
-}
+        // Function to filter links based on search input
+        function filterLinks() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const links = document.querySelectorAll('.section-content a');
 
-.panel {
-  padding: 0 18px;
-  display: none;
-  background-color: white;
-  overflow: hidden;
-}
-</style>
+            links.forEach(link => {
+                if (link.textContent.toLowerCase().includes(searchInput)) {
+                    link.style.display = "block"; // Show matching links
+                } else {
+                    link.style.display = "none"; // Hide non-matching links
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-  
-<h1 id="logo"> <img src="logo.png" alt="logo" width = "200" Height = "80" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  Myanmar Japan Thilawa Development Limited</a></h1>
+    <header>
+        <h1 id="logo"> <img src="logo.png" alt="logo" width = "130" Height = "50" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Myanmar Japan Thilawa Development Limited</h1>
+        <input 
+            type="text" 
+            id="search-input" 
+            class="search-bar" 
+            placeholder="Search..." 
+            oninput="filterLinks()"
+        >
+    </header>
 
-<button class="accordion">QMS/EMS</button>
-<div class="panel">
-  <p><a href="https://drive.google.com/drive/folders/1V3-B8JrOzUsle2CJx9pJOBD-6tybuMWB?usp=sharing"target="_blank"><font size="2" face="Arial">Procedure & Forms</font></a></p>
-  <p><a href="https://drive.google.com/drive/folders/1X0Gf10INQThPBf4fo-Ji5iT6G4giPKMs?usp=sharing"target="_blank"><font size="2" face="Arial">Audit Result Data</font></a></p>
-   </div>
-  
-<button class="accordion">Document Control</button>
-<div class="panel">
-  <p><a href="https://drive.google.com/drive/folders/1kd2xejCYKLU_bVQyMysS9Ig4r4Z7htPv?usp=drive_link"target="_blank"><font size="2" face="Arial">Procedure & Forms</font></a></p>
-  <p><a href="https://drive.google.com/drive/folders/13_8d8FgQ0HCWHnHYvG5TMENu_K-mdveD?usp=sharing"target="_blank"><font size="2" face="Arial">External Documents</font></a></p>
-  <p><a href="https://drive.google.com/drive/folders/1-VeRWkldOpr8wyyDNrWkXHVy702pOllv?usp=drive_link"target="_blank"><font size="2" face="Arial">D.C Master List</font></a></p>
-  <p><a href="https://drive.google.com/drive/u/0/folders/1HMO1KIjrOVH2iX8U6toen4zaHiRAWlav"target="_blank"><font size="2" face="Arial">DAR Forms(registered)</font></a></p>
-  </div>
+    <div class="container">
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('qms-content')">QMS/EMS</div>
+            <div class="section-content" id="qms-content">
+                <a href="https://drive.google.com/drive/folders/1V3-B8JrOzUsle2CJx9pJOBD-6tybuMWB?usp=sharing"target="_blank">Procedure & Forms</a>
+                <a href="https://drive.google.com/drive/folders/1X0Gf10INQThPBf4fo-Ji5iT6G4giPKMs?usp=sharing"target="_blank">Audit Result Data</a>
+            </div>
+        </div>
 
-<button class="accordion">Risk Assessment & Interested Parties</button>
-<div class="panel">
-  <p><a href="https://drive.google.com/drive/folders/1c8m6KXZ5dyEiQFT2zY6avJURupwISZq7?usp=sharing"target="_blank"><font size="2" face="Arial">Risk Assessment</font></a></p>
-   <p><a href="https://drive.google.com/drive/folders/1u7XDNnnDPJUlgQyEzZ1jSSz7X7-JcMis?usp=drive_link"target="_blank"><font size="2" face="Arial">Interested Parties</font></a></p>
-</div>
-  
-<button class="accordion">Admin and HR Department</button>
-<div class="panel">
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('document-control-content')">Document Control</div>
+            <div class="section-content" id="document-control-content">
+                <a href="https://drive.google.com/drive/folders/1kd2xejCYKLU_bVQyMysS9Ig4r4Z7htPv?usp=drive_link"target="_blank">Procedure & Forms</a>
+                <a href="https://drive.google.com/drive/folders/13_8d8FgQ0HCWHnHYvG5TMENu_K-mdveD?usp=sharing"target="_blank">External Documents</a>
+                <a href="https://drive.google.com/drive/folders/1-VeRWkldOpr8wyyDNrWkXHVy702pOllv?usp=drive_link"target="_blank">D.C Master List</a>
+                <a href="https://drive.google.com/drive/u/0/folders/1HMO1KIjrOVH2iX8U6toen4zaHiRAWlav"target="_blank">DAR Forms (Registered)</a>
+            </div>
+        </div>
 
-  <p><a href="https://drive.google.com/drive/folders/1oVnws7a_a-RMZq-a6uJSIsfTgTUZgG-5?usp=sharing"target="_blank"><font size="2" face="Arial">Admin</font></a></p>
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('risk-content')">Risk Assessment & Interested Parties</div>
+            <div class="section-content" id="risk-content">
+                <a href="https://drive.google.com/drive/folders/1c8m6KXZ5dyEiQFT2zY6avJURupwISZq7?usp=sharing"target="_blank">Risk Assessment</a>
+                <a href="https://drive.google.com/drive/folders/1u7XDNnnDPJUlgQyEzZ1jSSz7X7-JcMis?usp=drive_link"target="_blank">Interested Parties</a>
+            </div>
+        </div>
 
-  <p><a href="https://drive.google.com/drive/folders/1AcBk-w-oK5jGZz3a3zkGMwGZbicoQt6w?usp=sharing"target="_blank"><font size="2" face="Arial">Human Resource</font></a></p>
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('admin-hr-content')">Admin and HR Department</div>
+            <div class="section-content" id="admin-hr-content">
+                <a href="https://drive.google.com/drive/folders/1oVnws7a_a-RMZq-a6uJSIsfTgTUZgG-5?usp=sharing"target="_blank">Admin</a>
+                <a href="https://drive.google.com/drive/folders/1AcBk-w-oK5jGZz3a3zkGMwGZbicoQt6w?usp=sharing"target="_blank">Human Resource</a>
+                <a href="https://drive.google.com/drive/folders/1wofvC7wBCFPemh-9Gn_zGP2zS41IvXGK?usp=sharing"target="_blank">Procurement</a>
+                            </div>
+        </div>
 
-   <p><a href="https://drive.google.com/drive/folders/1wofvC7wBCFPemh-9Gn_zGP2zS41IvXGK?usp=sharing"target="_blank"><font size="2" face="Arial">Procurement</font></a></p>
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('operations-department-content')">Operations Department</div>
+            <div class="section-content" id="operations-department-content">
+                <a href="https://drive.google.com/drive/folders/1WltGbIzC4Y74LlbNR03crvalhhNgc-_U?usp=sharing"target="_blank">Construction & Maintenance</a>
+                <a href="https://drive.google.com/drive/folders/1U-FSa4hsS5y9vac3noijI487ALWfiRwR?usp=sharing"target="_blank">Power</a>
+                <a href="https://drive.google.com/drive/folders/1hmjq2VGbZIcrrC-BDRseFgntzSwxhLLt?usp=sharing"target="_blank">Water</a>
+                <a href="https://drive.google.com/drive/folders/1RFWNC6AXWP8wBdCS9uFo6Ihi3l9YheHm?usp=sharing"target="_blank">Landscaping & Security</a>
+                            </div>
+        </div>
 
-</div>
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('customer-content')">Customer Department</div>
+            <div class="section-content" id="customer-content">
+                <a href="https://drive.google.com/drive/folders/1c8m6KXZ5dyEiQFT2zY6avJURupwISZq7?usp=sharing"target="_blank">Locator Relation</a>
+                <a href="https://drive.google.com/drive/folders/1ADU5ceK9LmMwhlCZnNkpaHYOPBOoL5ea?usp=sharing"target="_blank">Sale & Marketing</a>
+            </div>
+        </div>
 
-<button class="accordion">Operations Department</button>
-<div class="panel">
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('community-content')">Community Relation Department</div>
+            <div class="section-content" id="community-content">
+                <a href="https://drive.google.com/drive/folders/15UYJ4vAU0yV7bg5oOfeXUaZVUydzZPJM?usp=sharing"target="_blank">Community Relation</a>
+               
+            </div>
+        </div>
+    </div>
 
-   <p><a href="https://drive.google.com/drive/folders/1WltGbIzC4Y74LlbNR03crvalhhNgc-_U?usp=sharing"target="_blank"><font size="2" face="Arial">Construction & Maintenance</font></a></p>
-
-   <p><a href="https://drive.google.com/drive/folders/1U-FSa4hsS5y9vac3noijI487ALWfiRwR?usp=sharing"target="_blank"><font size="2" face="Arial">Power</font></a></p>
-  
-   <p><a href="https://drive.google.com/drive/folders/1hmjq2VGbZIcrrC-BDRseFgntzSwxhLLt?usp=sharing"target="_blank"><font size="2" face="Arial">Water</font></a></p>
-
-   <p><a href="https://drive.google.com/drive/folders/1RFWNC6AXWP8wBdCS9uFo6Ihi3l9YheHm?usp=sharing"target="_blank"><font size="2" face="Arial">Landscaping & Security</font></a></p>
- 
-
-</div>
-
-<button class="accordion">Customer Department</button>
-<div class="panel">
-
- <p><a href="https://drive.google.com/drive/folders/1fzHCjJiWrHDN3Ilem3u2aw5RGRl06Zzq?usp=sharing"target="_blank"><font size="2" face="Arial">Locator Relation</font></a></p>
-
- <p><a href="https://drive.google.com/drive/folders/1ADU5ceK9LmMwhlCZnNkpaHYOPBOoL5ea?usp=sharing"target="_blank"><font size="2" face="Arial">Sale & Marketing</font></a></p>
-
-</div>
-
-<button class="accordion">Community Relation Department</button>
-<div class="panel">
-  
-  <p><a href="https://drive.google.com/drive/folders/15UYJ4vAU0yV7bg5oOfeXUaZVUydzZPJM?usp=sharing"target="_blank"><font size="2" face="Arial">Community Relation</font></a></p>
-
-</div>
-
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
-</script>
-
+    <footer>
+        &copy; 2024 Myanmar Japan Thilawa Development Limited. All Rights Reserved.
+    </footer>
 </body>
 </html>
